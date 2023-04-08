@@ -5,15 +5,15 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-export (int) var velocity_speed = 10
+export (int) var velocity_speed = 8
 var velocity = Vector2.ZERO
 var object_collision = null
 var object_name = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity.y -= 25
-	velocity.x += 25
+	velocity.y -= 40
+	velocity.x += 30
 	
 	pass # Replace with function body.
 
@@ -24,7 +24,25 @@ func _ready():
 func _physics_process(delta):
 	object_collision = move_and_collide((velocity * velocity_speed) * delta)
 	if object_collision != null:
-		velocity_speed += 0.1
+		
+		if velocity.x > 0:
+			velocity.x += (randi() % 5) + 1
+		elif velocity.x < 0:
+			velocity.x -= (randi() % 5) + 1
+		
+		if velocity.y > 0:
+			velocity.y += (randi() % 5) + 1
+		elif velocity.y < 0:
+			velocity.y -= (randi() % 5) + 1
+			
+		if velocity.x >= 100:
+			velocity.x /= (randi() % 5) + 1
+		if velocity.y >= 100:
+			velocity.y /= (randi() % 5) + 1
+			
+		print("Ball move position: ", velocity)
+		print("Ball speed: ", velocity_speed)
+		
 		object_name = object_collision.get_collider().name
 		var textnumber = null
 		

@@ -18,7 +18,6 @@ func _physics_process(delta):
 	elif Input.is_action_pressed(key_move_down):
 		velocity.y += 1
 		
-	
 	if(object_collision != null):
 		if(object_collision.get_collider().name == "EndSideTop"):
 			velocity.y *= -1
