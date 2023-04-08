@@ -20,7 +20,7 @@ func _physics_process(delta):
 		
 	
 	if(object_collision != null):
-		if(object_collision.get_collider().is_in_group("EndSideScreen")):
+		if(object_collision.get_collider().name == "EndSideTop"):
 			velocity.y *= -1
 			
 	if(abs(velocity.y) >= 100):
