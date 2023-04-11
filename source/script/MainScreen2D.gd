@@ -1,3 +1,10 @@
+
+# The music used in this game has not copyright
+#
+# Thanks to Jeremy Blake
+# Jeremy Blake - Powerup! ♫ NO COPYRIGHT 8-bit Music
+# https://www.youtube.com/watch?v=l7SwiFWOQqM&ab_channel=FreeMusic
+
 extends Node2D
 
 
@@ -19,6 +26,7 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioStreamPlayer2D.play()
 	pass	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

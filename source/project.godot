@@ -14,6 +14,13 @@ config/name="Pong"
 run/main_scene="res://scene/MainScreen2D.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=640
+window/size/height=480
+window/size/resizable=false
+window/size/borderless=true
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

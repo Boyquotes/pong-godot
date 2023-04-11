@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-export (int) var velocity_speed = 8
+export (int) var velocity_speed = 4
 var velocity = Vector2.ZERO
 var object_collision = null
 var object_name = null
@@ -39,9 +39,6 @@ func _physics_process(delta):
 			velocity.x /= (randi() % 5) + 1
 		if velocity.y >= 100:
 			velocity.y /= (randi() % 5) + 1
-			
-		print("Ball move position: ", velocity)
-		print("Ball speed: ", velocity_speed)
 		
 		object_name = object_collision.get_collider().name
 		var textnumber = null
@@ -56,14 +53,12 @@ func _physics_process(delta):
 			textnumber += 1
 			get_parent().get_node("Records/Player1").text = String(textnumber);
 			
-			set_position(Vector2(512, 303))
 			velocity.x *= -1
 		elif((object_name == "EndSideLeft")):
 			textnumber = get_parent().get_node("Records/Player2").text.to_int()
 			textnumber += 1
 			get_parent().get_node("Records/Player2").text = String(textnumber);
 			
-			set_position(Vector2(512, 303))
 			velocity.x *= -1
 		
 	pass
